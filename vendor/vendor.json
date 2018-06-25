@@ -1,0 +1,10 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [],
+	"rootPath": "github.com/anthonyho007/GO-WebApp",
+  "heroku": {
+    "goVersion": "go.1.9.1",
+    "install": [ "./..." ]
+  }
+}
