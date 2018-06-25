@@ -8,7 +8,7 @@ func Handle404(writer http.ResponseWriter, req *http.Request) {
 	RenderTemplate(
 		writer,
 		req,
-		"errors/404",
+		"error/404",
 		nil,
 	)
 }
@@ -18,7 +18,7 @@ func Handle500(writer http.ResponseWriter, req *http.Request, err error) {
 	RenderTemplate(
 		writer,
 		req,
-		"errors/500",
+		"error/500",
 		map[string]interface{}{
 			"Error": err.Error(),
 		})

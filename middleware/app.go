@@ -6,13 +6,15 @@ import (
 )
 
 func App(port string) {
-	mux := http.NewServeMux()
-	mux.HandleFunc("/", HandleMainPage)
-	mux.Handle(
-		"/assets/",
-		http.StripPrefix("/assets/",
-			http.FileServer(http.Dir("assets/")),
-		),
+	mux := Router()
+	mux.HandlerFunc("GET", "/", HandleMainPage)
+	mux.HandlerFunc("GET", "/about", HandleAboutPage)
+	mux.ServeFiles(
+		"/assets/*filepath",
+		http.Dir("assets/"),
 	)
-	log.Fatal(http.ListenAndServe(":"+port, mux))
+	mw := Middleware{}
+	mw.Add(mux)
+
+	log.Fatal(http.ListenAndServe(":"+port, mw))
 }
