@@ -9,6 +9,7 @@ func App(port string) {
 	mux := Router()
 	mux.HandlerFunc("GET", "/", HandleMainPage)
 	mux.HandlerFunc("GET", "/about", HandleAboutPage)
+	mux.HandlerFunc("GET", "/projects", HandleProjectsPage)
 	mux.ServeFiles(
 		"/assets/*filepath",
 		http.Dir("assets/"),

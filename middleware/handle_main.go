@@ -11,3 +11,7 @@ func HandleMainPage(writer http.ResponseWriter, req *http.Request) {
 func HandleAboutPage(writer http.ResponseWriter, req *http.Request) {
 	RenderTemplate(writer, req, "index/about", nil)
 }
+
+func HandleProjectsPage(writer http.ResponseWriter, req *http.Request) {
+	RenderTemplate(writer, req, "index/projects", nil)
+}
